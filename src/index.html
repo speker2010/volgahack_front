@@ -4,9 +4,10 @@
     <!-- Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Document</title>
     <!-- todo:Вставить подгрузки шрифтов и стилей и может быть скриптов -->
+
     <!-- / Meta -->
     <!-- Styles -->
 
@@ -15,6 +16,11 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- / Styles -->
     <!-- Scripts -->
+    <!--[if lt IE 9]>
+        <script src="libs/es5-shim/es5-shim.min.js"></script>
+        <script src="libs/html5shiv/dist/html5shiv.min.js"></script>
+        <script src="libs/respond/dest/respond.min.js"></script>
+    <![endif]-->
     <script src="libs/jquery/dist/jquery.js"></script>
     <!-- build:js js/compiled.js -->
     <script src="libs/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
@@ -23,14 +29,17 @@
     <!-- / Scripts -->
 </head>
 <body>
-<header class="container">
-    <h1>Hello world <span class="fa fa-twitter"></span></h1>
-</header>
-<main>
+    <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+    <header class="container">
+        <h1>Hello world <span class="fa fa-twitter"></span></h1>
+    </header>
+    <main>
 
-</main>
-<footer>
+    </main>
+    <footer>
 
-</footer>
+    </footer>
 </body>
 </html>

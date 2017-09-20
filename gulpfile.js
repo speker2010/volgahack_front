@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var bs = require('browser-sync');
 var sourcemaps = require('gulp-sourcemaps');
-// var imagemin = require('gulp-imagemin');
 var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
 var gulpif = require('gulp-if');
@@ -10,6 +9,7 @@ var htmllint = require('gulp-htmllint');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
 var gutil = require('gulp-util');
+var stylelint = require('gulp-stylelint');
 
 
 // functions
@@ -26,6 +26,12 @@ function htmllintReporter(filepath, issues) {
 // styles
 gulp.task('sass', function () {
     gulp.src('src/scss/*.scss')
+        .pipe(stylelint({
+            failAfterError: false,
+            reporters: [
+                { formatter: 'string', console: true }
+            ]
+        }))
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write())

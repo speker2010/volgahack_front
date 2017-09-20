@@ -62,7 +62,7 @@
     },
     "requireSpacesInsideObjectBrackets": "allButNested",
     "validateIndentation": 4,
-    "validateLineBreaks": "lf",
+    "validateLineBreaks": "LF",
     "validateParameterSeparator": ", ",
     "validateQuoteMarks": "'"
 }
