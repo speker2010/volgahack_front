@@ -9,7 +9,10 @@ var htmllint = require('gulp-htmllint');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
 var gutil = require('gulp-util');
+var imagemin = require('gulp-imagemin');
+var clean = require('gulp-clean');
 var stylelint = require('gulp-stylelint');
+var distDir = '';
 
 
 // functions
@@ -40,6 +43,23 @@ gulp.task('sass', function () {
 
 gulp.task('styles', ['sass']);
 
+
+gulp.task('sass:build', function () {
+    gulp.src('src/scss/*.scss')
+        .pipe(stylelint({
+            failAfterError: false,
+            reporters: [
+                { formatter: 'string', console: true }
+            ]
+        }))
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest(distDir + 'css'));
+});
+
+gulp.task('build:styles', ['sass:build'], function () {
+});
+
 // html
 gulp.task('useref', function () {
     gulp.src('src/*.html')
@@ -56,6 +76,9 @@ gulp.task('htmllint', function () {
 gulp.task('html', ['htmllint'], function () {
 });
 
+gulp.task('build:html', ['htmllint'], function () {
+});
+
 // scripts
 gulp.task('jslint', function () {
     gulp.src(['src/js/**/*.js', 'gulpfile.js'])
@@ -67,6 +90,21 @@ gulp.task('jslint', function () {
 
 gulp.task('scripts', ['jslint'], function () {
 
+});
+
+gulp.task('scripts:copy', function () {
+    gulp.src(['src/js/**/*.js'])
+        .pipe(gulp.dest(distDir + 'js'));
+});
+
+gulp.task('build:scripts', ['scripts:copy', 'jslint'], function () {
+});
+
+// images
+gulp.task('build:img', function () {
+    gulp.src(['src/img/*'])
+        .pipe(imagemin())
+        .pipe(gulp.dest(distDir + 'img'));
 });
 
 // watchers
@@ -89,7 +127,16 @@ gulp.task('watchBs', ['bs', 'styles'], function () {
     gulp.watch('src/js/*.js', ['scripts']).on('change', bs.reload);
 });
 
+// build
+gulp.task('build', ['build:styles', 'build:html', 'build:scripts', 'build:img'], function () {
+});
+
 // other
+gulp.task('clean', function () {
+    gulp.src(['css', 'js', 'img'], { read:false })
+        .pipe(clean({ force: true }));
+});
+
 gulp.task('hello', function () {
     console.log('hello world');
 });
