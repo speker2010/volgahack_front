@@ -1,9 +1,16 @@
 {
     "plugins": [
-        "stylelint-order"
+        "stylelint-order",
+        "stylelint-scss"
     ],
     "rules": {
-        "order/properties-alphabetical-order": true
+        "order/properties-alphabetical-order": true,
+        "at-rule-no-unknown": [
+            true,
+            {
+                "ignoreAtRules": ["mixin", "include", "else", "if", "else if", "content", "extend"]
+            }
+        ]
     },
     "extends": "stylelint-config-standard"
 }
