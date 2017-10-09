@@ -1,0 +1,55 @@
+@mixin respond-to($media) {
+  @if $media == phones {
+    @media only screen and (max-width: 479px) { @content; }
+  }
+
+  @else if $media == wide-phones {
+    @media all and (min-width: 480px) and (max-width: 767px) { @content; }
+  }
+
+  @else if $media == tablets {
+    @media all and (min-width: 768px) and (max-width: 991px) { @content; }
+  }
+
+  @else if $media == small-desktops {
+    @media all and (min-width: 992px) and (max-width: 1199px) { @content; }
+  }
+
+  @else if $media == lg-desktops {
+    @media all and (min-width: 1200px) and (max-width: 1440px) { @content; }
+  }
+
+  @else if $media == xlg-desktops {
+    @media all and (min-width: 1441px) and (max-width: 1920px) { @content; }
+  }
+}
+
+@mixin respond($media) {
+  @if $media == phones {
+    @media only screen and (max-width: 479px) { @content; }
+  }
+
+  @else if $media == landscape-phones {
+    @media all and (max-width: 670px) { @content; }
+  }
+
+  @else if $media == wide-phones {
+    @media all and (max-width: 767px) { @content; }
+  }
+
+  @else if $media == tablets {
+    @media all and (max-width: 991px) { @content; }
+  }
+
+  @else if $media == small-desktops {
+    @media all and (max-width: 1199px) { @content; }
+  }
+
+  @else if $media == lg-desktops {
+    @media all and (max-width: 1440px) { @content; }
+  }
+
+  @else if $media == xlg-desktops {
+    @media all and (max-width: 1920px) { @content; }
+  }
+}
