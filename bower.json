@@ -21,6 +21,6 @@
     "respond": "^1.4.2",
     "es5-shim": "^4.5.9",
     "html5shiv": "^3.7.3",
-    "jquery.maskedinput": "jquery-maskedinput#^1.4.1"
+    "inputmask": "jquery.inputmask#^3.3.8"
   }
 }
