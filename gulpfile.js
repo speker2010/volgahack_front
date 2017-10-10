@@ -122,7 +122,7 @@ gulp.task('bs', function () {
 
 gulp.task('watchBs', ['bs', 'styles'], function () {
     gulp.watch('src/scss/*.scss', ['styles']);
-    gulp.watch('src/styles/*.css').on('change', bs.reload);
+    gulp.watch('src/css/*.css').on('change', bs.reload);
     gulp.watch('src/*.html', ['html']).on('change', bs.reload);
     gulp.watch('src/js/*.js', ['scripts']).on('change', bs.reload);
 });
