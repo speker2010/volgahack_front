@@ -12,6 +12,7 @@ var gutil = require('gulp-util');
 var imagemin = require('gulp-imagemin');
 var clean = require('gulp-clean');
 var stylelint = require('gulp-stylelint');
+var gih = require('gulp-include-html');
 var distDir = '';
 
 
@@ -73,10 +74,18 @@ gulp.task('htmllint', function () {
         .pipe(htmllint(), htmllintReporter);
 });
 
-gulp.task('html', ['htmllint'], function () {
+gulp.task('include-html', function () {
+    return gulp.src('./src/html/*.html')
+        .pipe(gih({
+            baseDir:'./src/html/'
+        }))
+        .pipe(gulp.dest('./src'));
 });
 
-gulp.task('build:html', ['htmllint'], function () {
+gulp.task('html', ['include-html', 'htmllint'], function () {
+});
+
+gulp.task('build:html', ['include-html', 'htmllint'], function () {
 });
 
 // scripts
@@ -120,9 +129,10 @@ gulp.task('bs', function () {
     });
 });
 
-gulp.task('watchBs', ['bs', 'styles'], function () {
+gulp.task('watchBs', ['styles', 'html', 'bs'], function () {
     gulp.watch('src/scss/*.scss', ['styles']);
     gulp.watch('src/css/*.css').on('change', bs.reload);
+    gulp.watch('src/html/**/*.html', ['html']);
     gulp.watch('src/*.html', ['html']).on('change', bs.reload);
     gulp.watch('src/js/*.js', ['scripts']).on('change', bs.reload);
 });
