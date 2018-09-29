@@ -2,12 +2,12 @@
 <main>
   <div class="container">
 
-    <form class="form-signin" role="form">
+    <form class="form-signin" role="form" id="sign-in" v-on:submit="submit">
       <h2 class="form-signin-heading">Вход в систему</h2>
-      <input type="text" class="form-control" placeholder="Имя пользователя" required autofocus>
-      <input type="password" class="form-control" placeholder="Пароль" required>
+      <input type="text" class="form-control" v-model="username" placeholder="Имя пользователя" required autofocus>
+      <input type="password" class="form-control" v-model="password" placeholder="Пароль" required>
       <label class="checkbox">
-        <input type="checkbox" value="remember-me"> Запомнить меня
+        <input type="checkbox" v-model="rememberMe" value="remember-me"> Запомнить меня
       </label>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Вход</button>
     </form>

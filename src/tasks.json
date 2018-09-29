@@ -1,0 +1,32 @@
+{
+  "result": true,
+  "data": [
+    {
+      "title": "test",
+      "description": "some **text**",
+      "active": 0,
+      "authorId": 0,
+      "contribution": 0,
+      "price": 100,
+      "tags": [
+        {
+          "id": 3,
+          "text": "C"
+        },
+        {
+          "id": 4,
+          "text": "JavaScript"
+        }
+      ]
+    },
+    {
+      "title": "nan",
+      "description": "this is text ",
+      "active": 1,
+      "authorId": 22,
+      "contribution": 123,
+      "price": 123455,
+      "tags": []
+    }
+  ]
+}

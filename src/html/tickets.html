@@ -5,7 +5,25 @@
             <div class="col-md-12">
                 <h1>Список объявлений</h1>
                 <div id="tickets">
-                    <div class="panel panel-default" v-for="ticket in tickets">
+                    <div class="card" v-for="ticket in tickets">
+                        <div class="card-header">
+                            {{ticket.title}}
+                        </div>
+                        <div class="card-body">
+                            <!--<h5 class="card-title">Специальный заголовок</h5>-->
+                            <div class="card-text" v-html="ticket.description">
+
+                            </div>
+                            <p>
+                                <a href="#" class="b-tag" v-bind:data-id="tag.id" v-for="tag in ticket.tags">#{{tag.text}}</a>
+                            </p>
+                            <div class="ticket-price text-success">
+                                {{ticket.price}} кармы
+                            </div>
+                            <a href="#" class="btn btn-primary">Просмотр</a>
+                        </div>
+                    </div>
+                    <!--<div class="panel panel-default" v-for="ticket in tickets">
                         <div class="panel-heading">
                             <a href="ticket.html">
                                 <h3 class="panel-title">{{ticket.title}}</h3>
@@ -20,7 +38,7 @@
                                 {{ticket.price}} кармы
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
