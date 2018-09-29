@@ -20,7 +20,7 @@
                             <div class="ticket-price text-success">
                                 {{ticket.price}} кармы
                             </div>
-                            <a href="#" class="btn btn-primary">Просмотр</a>
+                            <a href="/ticket.html?id=" v-bind:href="'/ticket.html?id=' + ticket.id" class="btn btn-primary">Просмотр</a>
                         </div>
                     </div>
                     <!--<div class="panel panel-default" v-for="ticket in tickets">
