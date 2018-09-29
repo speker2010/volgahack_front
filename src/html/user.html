@@ -2,11 +2,11 @@
 <main>
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <h1 class="user-name">Имя пользователя</h1>
-        <p class="user-karma">Карма: <span>0</span></p>
-        <p class="user-about">О себе</p>
-        <a class="user-social" href="">Ссылка на соцсеть</a>
+      <div id="user" class="col-md-12">
+        <h1 class="user-name">{{user.username}}</h1>
+        <p class="user-karma">Карма: <span>{{user.karma}}</span></p>
+        <p class="user-about">{{user.about}}</p>
+        <a class="user-social" v-bind:href="user.social_link">{{user.social_link}}</a>
         <a href="create-ticket.html"><button type="button" class="btn btn-default make-ticket">Поставить задачу</button></a>
         <a href="user-edit.html"><button type="button" class="btn btn-default user-edit">Редактировать личную
             информацию</button></a>
