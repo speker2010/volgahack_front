@@ -163,6 +163,87 @@ $(document).ready(function () {
         });
     }
 
+    var $userEditEl = $('#user-edit');
+    if ($userEditEl.length > 0) {
+        var userEditApp = new Vue({
+            el: $userEditEl[0],
+            data: {
+                username: '',
+                about: '',
+                social_link: ''
+            },
+            methods: {
+                submit: function (e) {
+                    e.preventDefault();
+                    var _this = this;
+                    vd(this.username, this.about, this.social_link, 'username about link');
+                    $.ajax({
+                        url: '/user-edit.json',
+                        data: {
+                            username: _this.username,
+                            about: _this.about,
+                            social_link: _this.social_link
+                        },
+                        method: 'GET',
+                        type: 'json',
+                        success: function (respond) {
+                            if (respond) {
+
+                                vd(respond, 'success');
+                            }
+                        },
+                        error: function (respond) {
+                            if (respond) {
+                                console.log(respond, 'error');
+                            }
+                        }
+                    })
+                }
+            }
+        });
+    }
+
+    var $createTicketEl = $('#create-ticket');
+    if ($createTicketEl.length > 0) {
+
+        var createTicketApp = new Vue({
+            el: $createTicketEl[0],
+            data: {
+                title: '',
+                description: '',
+                tags: [],
+                price: ''
+            },
+            methods: {
+                submit: function (e) {
+                    e.preventDefault();
+                    vd(this.title, this.description, this.tags, this.price, 'title description tags price');
+                    var _this = this;
+                    $.ajax({
+                        url: '/create-ticket.json',
+                        data: {
+                            title: _this.title,
+                            description: _this.description,
+                            tags: _this.tags,// todo: возможно нужно переделывать если будет массив
+                            price: _this.price
+                        },
+                        method: 'GET',
+                        type: 'json',
+                        success: function (response) {
+                            if (response) {
+                                vd(response, 'success');
+                            }
+                        },
+                        error: function (response) {
+                            if (response) {
+                                vd(response, 'error');
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    }
 });
 
 function getUrlParameters(parameter, staticURL, decode) {
@@ -227,4 +308,8 @@ function deleteCookie(name) {
     setCookie(name, "", {
         expires: -1
     })
+}
+
+function vd() {
+    console.log(...arguments);
 }
