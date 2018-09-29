@@ -20,6 +20,7 @@
     <!-- Scripts -->
 
     <script src="libs/jquery/dist/jquery.js"></script>
+    <script src="libs/vue/dist/vue.js"></script>
     <!-- build:js js/compiled.js -->
     <script src="libs/markdown-js/dist/markdown.js"></script>
     <script src="libs/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
@@ -43,8 +44,9 @@
 <main>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" id="app">
                 <h1>Главная</h1>
+                {{hello}}
 
             </div>
         </div>

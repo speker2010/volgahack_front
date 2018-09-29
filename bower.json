@@ -19,6 +19,7 @@
     "font-awesome": "fontawesome#^4.7.0",
     "bootstrap-sass": "^3.3.7",
     "respond": "^1.4.2",
-    "markdown-js": "^0.6.2"
+    "markdown-js": "^0.6.2",
+    "vue": "^2.5.17"
   }
 }

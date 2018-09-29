@@ -3,50 +3,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Список объявлений</h1>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Название объявления</h3>
-                    </div>
-                    <div class="panel-body">
-                        Текст объявления
-                        <div>
-                            <a href="#">#tag1</a> <a href="">#tag2</a> <a href="">#tag3</a> <a href="">#tag4</a>
+                <div id="tickets">
+                    <div class="panel panel-default" v-for="ticket in tickets">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{ticket.title}}</h3>
+                        </div>
+                        <div class="panel-body">
+                            Текст объявления
+                            <div>
+                                <a href="#">#tag1</a> <a href="">#tag2</a> <a href="">#tag3</a> <a href="">#tag4</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Название объявления</h3>
-                    </div>
-                    <div class="panel-body">
-                        Текст объявления
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Название объявления</h3>
-                    </div>
-                    <div class="panel-body">
-                        Текст объявления
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Название объявления</h3>
-                    </div>
-                    <div class="panel-body">
-                        Текст объявления
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Название объявления</h3>
-                    </div>
-                    <div class="panel-body">
-                        Текст объявления
-                    </div>
-                </div>
+                <h1>Список объявлений</h1>
+
             </div>
         </div>
         
