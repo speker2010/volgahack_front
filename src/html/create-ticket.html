@@ -1,0 +1,29 @@
+@@include('./partials/_header.html')
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Создание объявления</h1>
+                <form role="form">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Название</label>
+                        <input type="task_name" class="form-control" placeholder="Название задачи">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Описание</label>
+                        <textarea class="form-control" name="task_description"  cols="30" rows="10" placeholder="Описание задачи"></textarea>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Цена</label>
+                        <input type="task_price" class="form-control" placeholder="Цена">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-default">Создать</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+@@include('./partials/_footer.html')
