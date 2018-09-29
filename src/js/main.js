@@ -244,7 +244,24 @@ $(document).ready(function () {
             }
         });
     }
+
+    var $lkInformerEl = $('#lk-informer');
+    if ($lkInformerEl.length > 0) {
+        var lkInfromerApp = new Vue({
+            el: $lkInformerEl[0],
+            data: {
+                isAuth: false
+            }
+        });
+        if (isAuth()) {
+            lkInfromerApp.isAuth = true;
+        }
+    }
 });
+
+function isAuth() {
+    return true;
+}
 
 function getUrlParameters(parameter, staticURL, decode) {
 
