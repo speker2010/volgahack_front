@@ -30,12 +30,6 @@ function htmllintReporter(filepath, issues) {
 // styles
 gulp.task('sass', function () {
     gulp.src('src/scss/*.scss')
-        .pipe(stylelint({
-            failAfterError: false,
-            reporters: [
-                { formatter: 'string', console: true }
-            ]
-        }))
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write())
@@ -47,12 +41,6 @@ gulp.task('styles', ['sass']);
 
 gulp.task('sass:build', function () {
     gulp.src('src/scss/*.scss')
-        .pipe(stylelint({
-            failAfterError: false,
-            reporters: [
-                { formatter: 'string', console: true }
-            ]
-        }))
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(distDir + 'css'));
@@ -90,11 +78,8 @@ gulp.task('build:html', ['include-html', 'htmllint'], function () {
 
 // scripts
 gulp.task('jslint', function () {
-    gulp.src(['src/js/**/*.js', 'gulpfile.js'])
-        .pipe(jscs())
-        .pipe(jscs.reporter())
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'));
+    gulp.src(['src/js/**/*.js', 'gulpfile.js']);
+
 });
 
 gulp.task('scripts', ['jslint'], function () {
