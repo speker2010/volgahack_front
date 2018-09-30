@@ -1,25 +1,53 @@
 @@include('./partials/_header.html')
-<main>
+<main role="main">
     <div class="container">
         <div class="row">
+
             <div class="col-md-12">
-                <h1>Список объявлений</h1>
+
+                <div class="jumbotron jumbotron-fluid">
+
+                    <div class="container">
+                        <h1 class="h1-reponsive mb-4 mt-2 blue-text font-bold">Список объявлений</h1>
+                        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+
+                        <div class="card mb-3 hoverable">
+                            <div class="card-body">
+                                <!--Grid row-->
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <h4 class="mb-4"><strong>{{ticket.title}}</strong></h4>
+                                        <p>
+                                            <a href="#" class="b-tag" v-bind:data-id="tag.id" v-for="tag in ticket.tags">#{{tag.text}}</a>
+                                        </p>
+                                        <div class="card-text" v-html="ticket.description">
+
+                                        </div>
+
+                                        <div class="ticket-price text-success">
+                                            {{ticket.price}} кармы
+                                        </div>
+                                        <a class="btn btn-success" href="/ticket.html?id=" v-bind:href="'/ticket.html?id=' + ticket.id" >
+                                            Залансить</a>
+                                    </div>
+                                    <!--Grid column-->
+                                </div>
+                                <!--Grid row-->
+                            </div>
+                        </div>
+                        <!--News card-->
+
                 <div id="tickets">
                     <div class="card" v-for="ticket in tickets">
                         <div class="card-header">
-                            {{ticket.title}}
+
                         </div>
                         <div class="card-body">
                             <!--<h5 class="card-title">Специальный заголовок</h5>-->
-                            <div class="card-text" v-html="ticket.description">
 
-                            </div>
-                            <p>
-                                <a href="#" class="b-tag" v-bind:data-id="tag.id" v-for="tag in ticket.tags">#{{tag.text}}</a>
-                            </p>
-                            <div class="ticket-price text-success">
-                                {{ticket.price}} кармы
-                            </div>
+
+
                             <a href="/ticket.html?id=" v-bind:href="'/ticket.html?id=' + ticket.id" class="btn btn-primary">Просмотр</a>
                         </div>
                     </div>
@@ -40,9 +68,10 @@
                         </div>
                     </div>-->
                 </div>
+                    </div>
             </div>
         </div>
-
+        </div>
     </div>
 </main>
 @@include('./partials/_footer.html')

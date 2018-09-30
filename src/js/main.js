@@ -50,21 +50,27 @@ $(document).ready(function () {
                     var _this = this;
 
                     $.ajax({
-                        url: '/sign-in.json',
+                        url: 'http://192.168.1.128:7000/registration',
                         data: {
                             username: _this.username,
                             password: _this.password,
                             "remember-me": _this.rememberMe
                         },
-                        method: 'GET',
+                        method: 'POST',
                         type: 'json',
                         success: function (response) {
                             if (response) {
-                                console.log(repsonse, 'success');
+                                console.log(response, 'success');
                             }
                         },
                         error: function (response) {
                             if (response) {
+                               /* document.getElementById("message").innerHTML=
+                                    '<div class="card">\n' +
+                                    '    <div class="card-header deep-orange lighten-1 white-text">\n' +
+                                    '        Неправильный пароль или имя пользоваеля.\n' +
+                                    '    </div>\n' +
+                                    '</div>';*/
                                 console.log(response, 'error');
                             }
                         }
@@ -91,16 +97,17 @@ $(document).ready(function () {
                     console.log(this.username);
                     console.log(this.password);
                     var _this = this;
+                    if ( _this.passwordRepeat === _this.password)
                     $.ajax({
                         //url: 'http://192.168.1.128:7000/login',
-                        url: '/sign-up.json',
+                        url: 'http://192.168.1.128:7000/registration',
                         data: {
                             username: _this.username,
-                            password: _this.password,
-                            passwordRepeat: _this.passwordRepeat
+                            password: _this.password
+                            /*passwordRepeat: _this.passwordRepeat
                             /*"remember-me": _this.rememberMe*/
                         },
-                        method: 'GET',
+                        method: 'POST',
                         success: function (e) {
                             console.log(e, 'success');
                         },
@@ -108,6 +115,14 @@ $(document).ready(function () {
                             console.log(e, 'error');
                         }
                     });
+                    else {
+                        /*document.getElementById("message").innerHTML=
+                            '<div class="card">\n' +
+                            '    <div class="card-body">\n' +
+                            '        This is some text within a panel body.\n' +
+                            '    </div>\n' +
+                            '</div>';*/
+                    }
                 }
             }
         });

@@ -1,7 +1,7 @@
 {
   "name": "gulp-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "install bower:sudo npm i -g bower install: npm i && bower i",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,5 +28,17 @@
     "stylelint-config-standard": "^17.0.0",
     "stylelint-order": "^0.6.0",
     "stylelint-scss": "^2.1.0"
-  }
+  },
+  "dependencies": {
+    "mdbootstrap": "^4.5.11",
+    "shared": "^0.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/speker2010/volha_hack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/speker2010/volha_hack/issues"
+  },
+  "homepage": "https://github.com/speker2010/volha_hack#readme"
 }
