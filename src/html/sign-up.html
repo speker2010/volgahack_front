@@ -33,73 +33,82 @@
 </head>
 
 <body>
-<main>
-    <div class="container">
-        <div class="row justify-content-md-center">
-            <div class="card-body mx-4">
-                <section class="form-elegant">
+    <main>
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="card-body mx-4">
+                    <section class="form-elegant">
 
-                    <!-- Grid row -->
-                    <div class="row">
-                        <div class="col"></div>
-                        <!-- Grid column -->
-                        <div class="col-5">
-                            <center style="margin-bottom: 20px;"><h1>Open<span class="badge cyan">Lance</span></h1></center>
-                            <!--Form without header-->
-                            <div class="card">
+                        <!-- Grid row -->
+                        <div class="row">
+                            <div class="col"></div>
+                            <!-- Grid column -->
+                            <div class="col-5">
+                                <a href="tickets.html" class="sign-title">
+                                    <center style="margin-bottom: 20px;">
+                                        <h1>Open<span class="badge cyan">Lance</span></h1>
+                                    </center>
+                                </a>
+                                <!--Form without header-->
+                                <div class="card">
 
-                                <div class="card-body mx-4">
-                                    <form class="form-signin" role="form" id="sign-in" v-on:submit="submit">
-                                        <!--Header-->
-                                        <div class="text-center">
-                                            <h3 class="dark-grey-text mb-5"><strong>Регистрация</strong></h3>
-                                        </div>
-                                        <div id="message"></div>
-                                        <!--Body-->
-                                        <div class="md-form">
+                                    <div class="card-body mx-4">
+                                        <form class="form-signin" role="form" id="sign-in" v-on:submit="submit">
+                                            <!--Header-->
+                                            <div class="text-center">
+                                                <h3 class="dark-grey-text mb-5"><strong>Регистрация</strong></h3>
+                                            </div>
+                                            <div id="message"></div>
+                                            <!--Body-->
+                                            <div class="md-form">
 
-                                            <input type="text" v-model="username" class="form-control" placeholder="Имя пользователя"
-                                                   required autofocus>
-                                            <p class="help-block" v-if="errorName">{{errorName}}</p>
-                                        </div>
+                                                <input type="text" v-model="username" class="form-control" placeholder="Имя пользователя"
+                                                    required autofocus>
+                                                <p class="help-block" v-if="errorName">{{errorName}}</p>
+                                            </div>
 
-                                        <div class="md-form">
-                                            <input type="password" v-model="password" class="form-control" placeholder="Пароль" required>
-                                            <p class="help-block" v-if="errorPass">{{errorPass}}</p></div>
-                                        <div class="md-form">
-                                            <input type="password" class="form-control" v-model="passwordRepeat" placeholder="Повторите пароль" required>
-                                        </div>
+                                            <div class="md-form">
+                                                <input type="password" v-model="password" class="form-control"
+                                                    placeholder="Пароль" required>
+                                                <p class="help-block" v-if="errorPass">{{errorPass}}</p>
+                                            </div>
+                                            <div class="md-form">
+                                                <input type="password" class="form-control" v-model="passwordRepeat"
+                                                    placeholder="Повторите пароль" required>
+                                            </div>
 
 
 
-                                        <div class="text-center mb-3">
-                                            <button type="submit" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Регистрация</button>
-                                        </div>
-                                    </form>
+                                            <div class="text-center mb-3">
+                                                <button type="submit" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Регистрация</button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+
+                                    <!--Footer-->
+                                    <div class="modal-footer mx-5 pt-3 mb-1">
+                                        <p class="font-small grey-text d-flex justify-content-end">Уже
+                                            зарегистрированы?
+                                            <a href="sign-in.html" class="blue-text ml-1">Войти</a></p>
+                                    </div>
+
+
 
                                 </div>
-
-                                <!--Footer-->
-                                <div class="modal-footer mx-5 pt-3 mb-1">
-                                    <p class="font-small grey-text d-flex justify-content-end">Уже зарегистрированы?
-                                        <a href="#" class="blue-text ml-1">Войти</a></p>
-                                </div>
-
-
+                                <!--/Form without header-->
 
                             </div>
-                            <!--/Form without header-->
-
+                            <!-- Grid column -->
+                            <div class="col"></div>
                         </div>
-                        <!-- Grid column -->
-                        <div class="col"></div>
-                    </div>
-                    <!-- Grid row -->
+                        <!-- Grid row -->
 
-                </section>
+                    </section>
+                </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 </body>
+
 </html>

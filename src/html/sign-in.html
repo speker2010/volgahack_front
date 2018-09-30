@@ -33,68 +33,76 @@
 </head>
 
 <body>
-<main>
-  <div class="container">
-      <div class="row justify-content-md-center">
-      <div class="card-body mx-4">
-          <section class="form-elegant">
+    <main>
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="card-body mx-4">
+                    <section class="form-elegant">
 
-              <!-- Grid row -->
-              <div class="row">
-                  <div class="col"></div>
-                  <!-- Grid column -->
-                  <div class="col-5">
-                      <center style="margin-bottom: 20px;"><h1>Open<span class="badge cyan">Lance</span></h1></center>
-                      <!--Form without header-->
-                      <div class="card">
+                        <!-- Grid row -->
+                        <div class="row">
+                            <div class="col"></div>
+                            <!-- Grid column -->
+                            <div class="col-5">
+                                <a href="tickets.html" class="sign-title">
+                                    <center style="margin-bottom: 20px;">
+                                        <h1>Open<span class="badge cyan">Lance</span></h1>
+                                    </center>
+                                </a>
+                                <!--Form without header-->
+                                <div class="card">
 
-                          <div class="card-body mx-4">
-                              <form class="form-signin" role="form" id="sign-in" v-on:submit="submit">
-                              <!--Header-->
-                              <div class="text-center">
-                                  <h3 class="dark-grey-text mb-5"><strong>Вход в систему</strong></h3>
-                              </div>
-                                <div id="message"></div>
-                              <!--Body-->
-                              <div class="md-form">
-                                  <input type="text" class="form-control" v-model="username" placeholder="Имя пользователя" required autofocus>
+                                    <div class="card-body mx-4">
+                                        <form class="form-signin" role="form" id="sign-in" v-on:submit="submit">
+                                            <!--Header-->
+                                            <div class="text-center">
+                                                <h3 class="dark-grey-text mb-5"><strong>Вход в систему</strong></h3>
+                                            </div>
+                                            <div id="message"></div>
+                                            <!--Body-->
+                                            <div class="md-form">
+                                                <input type="text" class="form-control" v-model="username" placeholder="Имя пользователя"
+                                                    required autofocus>
 
-                              </div>
+                                            </div>
 
-                              <div class="md-form">
-                                  <input type="password" class="form-control" v-model="password" placeholder="Пароль" required>
-                              </div>
+                                            <div class="md-form">
+                                                <input type="password" class="form-control" v-model="password"
+                                                    placeholder="Пароль" required>
+                                            </div>
 
-                              <label class="checkbox">
-                                  <input type="checkbox" v-model="rememberMe" value="remember-me"> Запомнить меня
-                              </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" v-model="rememberMe" value="remember-me">
+                                                Запомнить меня
+                                            </label>
 
-                              <div class="text-center mb-3">
-                                  <button type="submit" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Вход</button>
-                              </div>
-                              </form>
+                                            <div class="text-center mb-3">
+                                                <button type="submit" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Вход</button>
+                                            </div>
+                                        </form>
 
-                          </div>
+                                    </div>
 
-                          <!--Footer-->
-                          <div class="modal-footer mx-5 pt-3 mb-1">
-                              <p class="font-small grey-text d-flex justify-content-end">Нет аккаунта?
-                                  <a href="#" class="blue-text ml-1">Зарегистрироваться</a></p>
-                          </div>
+                                    <!--Footer-->
+                                    <div class="modal-footer mx-5 pt-3 mb-1">
+                                        <p class="font-small grey-text d-flex justify-content-end">Нет аккаунта?
+                                            <a href="sign-up.html" class="blue-text ml-1">Зарегистрироваться</a></p>
+                                    </div>
 
-                      </div>
-                      <!--/Form without header-->
+                                </div>
+                                <!--/Form without header-->
 
-                  </div>
-                  <!-- Grid column -->
-                  <div class="col"></div>
-              </div>
-              <!-- Grid row -->
+                            </div>
+                            <!-- Grid column -->
+                            <div class="col"></div>
+                        </div>
+                        <!-- Grid row -->
 
-          </section>
-      </div>
-      </div>
-  </div>
-</main>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
+
 </html>
