@@ -11,12 +11,12 @@
                         <h1 class="h1-reponsive mb-4 mt-2 blue-text font-bold">Список объявлений</h1>
                         <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
 
-                        <div class="card mb-3 hoverable">
+                        <div class="card mb-3 hoverable" id="tickets">
                             <div class="card-body">
                                 <!--Grid row-->
                                 <div class="row">
 
-                                    <div class="col-md-12">
+                                    <div class="col-md-12"  v-for="ticket in tickets">
                                         <h4 class="mb-4"><strong>{{ticket.title}}</strong></h4>
                                         <p>
                                             <a href="#" class="b-tag" v-bind:data-id="tag.id" v-for="tag in ticket.tags">#{{tag.text}}</a>

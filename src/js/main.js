@@ -10,15 +10,19 @@ $(document).ready(function () {
             },
             mounted() {
                 var _this = this;
+                console.log('sdf');
                 $.ajax({
-                    url: '/tasks.json',
-                    method: 'GET',
+                    url: 'http://192.168.1.128:7000/task',
+                    method: 'POST',
                     type: 'json',
                     success: function (response) {
-                        if (response.result) {
-                            var tickets = response.data;
+                        vd(response, 'success');
+                        if (response) {
+                            var tickets = response;
+                            console.log(tickets);
                             for (index in tickets) {
                                 var ticket = tickets[index];
+                                console.log(ticket);
                                 console.log(ticket.description)
                                 ticket.description = markdown.toHTML(ticket.description);
                                 _this.tickets.push(tickets[index]);
@@ -274,17 +278,18 @@ $(document).ready(function () {
                     window.location.href = 'tickets.html';
                 }
                 var _this = this;
+                console.log('sdf'+ticketId);
                 $.ajax({
-                    url: '/ticket-detail.json',
+                    url: 'http://192.168.1.128:7000/task/' + ticketId,
                     data: {
                         ticketId: ticketId
                     },
-                    method: 'GET',
+                    method: 'POST',
                     type: 'json',
                     success: function (respose) {
-                        vd(response, 'success');
-                        if (response.result) {
-                            var ticket = respose.data;
+                        vd(respose, 'success');
+                        if (respose) {
+                            var ticket = respose;
                             _this.title = ticket.title;
                             _this.description = markdown.toHTML(ticket.description);
                             _this.price = ticket.price;
