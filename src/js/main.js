@@ -1,12 +1,19 @@
 $(document).ready(function () {
     console.log('hello world');
+
     var $ticketsEl = $('#tickets');
     if ($ticketsEl.length > 0) {
+
         var ticketsApp = new Vue({
             el: '#tickets',
             data: {
-                tickets: [],
-                error: ''
+                tickets: [
+                    {
+                        id: 1,
+                        title: 'sdfs',
+                        description: 'asdfsadf'
+                    }
+                ]
             },
             mounted() {
                 var _this = this;
@@ -33,47 +40,8 @@ $(document).ready(function () {
                 });
             }
         });
-
     }
-    var $signInEl = $('#sign-in');
-    if ($signInEl.length > 0) {
-        var signIn = new Vue({
-            el: '#sign-in',
-            data: {
-                username: '',
-                password: '',
-                rememberMe: ''
-            },
-            methods: {
-                submit: function (e) {
-                    e.preventDefault();
-                    var _this = this;
 
-                    $.ajax({
-                        url: '/sign-in.json',
-                        data: {
-                            username: _this.username,
-                            password: _this.password,
-                            "remember-me": _this.rememberMe
-                        },
-                        method: 'GET',
-                        type: 'json',
-                        success: function (response) {
-                            if (response) {
-                                console.log(repsonse, 'success');
-                            }
-                        },
-                        error: function (response) {
-                            if (response) {
-                                console.log(response, 'error');
-                            }
-                        }
-                    });
-                }
-            }
-        });
-
-    }
     var $signUpEl = $('#sign-up');
     if ($signUpEl.length > 0) {
         var signUpApp = new Vue({
@@ -92,15 +60,15 @@ $(document).ready(function () {
                     console.log(this.password);
                     var _this = this;
                     $.ajax({
-                        //url: 'http://192.168.1.128:7000/login',
-                        url: '/sign-up.json',
+                        url: 'http://192.168.1.128:7000/login',
+
                         data: {
                             username: _this.username,
                             password: _this.password,
                             passwordRepeat: _this.passwordRepeat
                             /*"remember-me": _this.rememberMe*/
                         },
-                        method: 'GET',
+                        method: 'POST',
                         success: function (e) {
                             console.log(e, 'success');
                         },
@@ -113,14 +81,6 @@ $(document).ready(function () {
         });
 
     }
-
-
-    var app = new Vue({
-        el: '#app',
-        data: {
-            hello: ''
-        }
-    });
 
     var $usersEl = $('#user');
     if ($usersEl.length > 0) {
@@ -256,6 +216,54 @@ $(document).ready(function () {
         if (isAuth()) {
             lkInfromerApp.isAuth = true;
         }
+    }
+
+    var $ticketDetailEl = $('#ticket-detail');
+    if ($ticketDetailEl.length > 0) {
+        var ticketDetailApp = new Vue({
+            el: $ticketDetailEl[0],
+            data: {
+                title: '',
+                description: '',
+                price: '',
+                tags: []
+            },
+            mounted() {
+                var ticketId;
+                try {
+                    ticketId = getUrlParameters('id', "", true);
+                } catch (e) {
+                    window.location.href = 'tickets.html';
+                }
+                var _this = this;
+                $.ajax({
+                    url: '/ticket-detail.json',
+                    data: {
+                        ticketId: ticketId
+                    },
+                    method: 'GET',
+                    type: 'json',
+                    success: function (respose) {
+                        vd(response, 'success');
+                        if (response.result) {
+                            var ticket = respose.data;
+                            _this.title = ticket.title;
+                            _this.description = markdown.toHTML(ticket.description);
+                            _this.price = ticket.price;
+                            var tags = ticket.tags;
+                            for (index in tags) {
+                                _this.tags.push(tags[index]);
+                            }
+                        }
+                    },
+                    error: function (response) {
+                        if (response) {
+                            vd(response, 'error');
+                        }
+                    }
+                });
+            }
+        });
     }
 });
 
