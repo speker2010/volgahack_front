@@ -28,6 +28,15 @@
       "contribution": 123,
       "price": 123455,
       "tags": []
-    }
+    },
+      {
+          "title": "nanweqwe",
+          "description": "thcdcddsdsis is text ",
+          "active": 1,
+          "authorId": 22,
+          "contribution": 123,
+          "price": 123455,
+          "tags": []
+      }
   ]
 }

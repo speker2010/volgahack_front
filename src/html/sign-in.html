@@ -1,17 +1,100 @@
-@@include('./partials/_header.html')
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Document</title>
+    <!-- todo:Вставить подгрузки шрифтов и стилей и может быть скриптов -->
+
+    <!-- / Meta -->
+    <!-- Styles -->
+
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="libs/MDBootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="libs/MDBootstrap/css/mdb.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- / Styles -->
+    <!-- Scripts -->
+
+    <script src="libs/jquery/dist/jquery.js"></script>
+    <script src="libs/vue/dist/vue.js"></script>
+    <!-- build:js js/compiled.js -->
+    <script src="libs/markdown-js/dist/markdown.js"></script>
+    <script src="libs/MDBootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/MDBootstrap/js/mdb.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- endbuild -->
+    <!-- / Scripts -->
+</head>
+
+<body>
 <main>
   <div class="container">
+      <div class="row justify-content-md-center">
+      <div class="card-body mx-4">
+          <section class="form-elegant">
 
-    <form class="form-signin" role="form" id="sign-in" v-on:submit="submit">
-      <h2 class="form-signin-heading">Вход в систему</h2>
-      <input type="text" class="form-control" v-model="username" placeholder="Имя пользователя" required autofocus>
-      <input type="password" class="form-control" v-model="password" placeholder="Пароль" required>
-      <label class="checkbox">
-        <input type="checkbox" v-model="rememberMe" value="remember-me"> Запомнить меня
-      </label>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Вход</button>
-    </form>
+              <!-- Grid row -->
+              <div class="row">
+                  <div class="col"></div>
+                  <!-- Grid column -->
+                  <div class="col-5">
+                      <center style="margin-bottom: 20px;"><h1>Open<span class="badge cyan">Lance</span></h1></center>
+                      <!--Form without header-->
+                      <div class="card">
 
+                          <div class="card-body mx-4">
+                              <form class="form-signin" role="form" id="sign-in" v-on:submit="submit">
+                              <!--Header-->
+                              <div class="text-center">
+                                  <h3 class="dark-grey-text mb-5"><strong>Вход в систему</strong></h3>
+                              </div>
+                                <div id="message"></div>
+                              <!--Body-->
+                              <div class="md-form">
+                                  <input type="text" class="form-control" v-model="username" placeholder="Имя пользователя" required autofocus>
+
+                              </div>
+
+                              <div class="md-form">
+                                  <input type="password" class="form-control" v-model="password" placeholder="Пароль" required>
+                              </div>
+
+                              <label class="checkbox">
+                                  <input type="checkbox" v-model="rememberMe" value="remember-me"> Запомнить меня
+                              </label>
+
+                              <div class="text-center mb-3">
+                                  <button type="submit" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Вход</button>
+                              </div>
+                              </form>
+
+                          </div>
+
+                          <!--Footer-->
+                          <div class="modal-footer mx-5 pt-3 mb-1">
+                              <p class="font-small grey-text d-flex justify-content-end">Нет аккаунта?
+                                  <a href="#" class="blue-text ml-1">Зарегистрироваться</a></p>
+                          </div>
+
+                      </div>
+                      <!--/Form without header-->
+
+                  </div>
+                  <!-- Grid column -->
+                  <div class="col"></div>
+              </div>
+              <!-- Grid row -->
+
+          </section>
+      </div>
+      </div>
   </div>
 </main>
-@@include('./partials/_footer.html')
+</body>
+</html>

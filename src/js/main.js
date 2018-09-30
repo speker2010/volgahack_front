@@ -1,19 +1,12 @@
 $(document).ready(function () {
     console.log('hello world');
-
     var $ticketsEl = $('#tickets');
     if ($ticketsEl.length > 0) {
-
         var ticketsApp = new Vue({
             el: '#tickets',
             data: {
-                tickets: [
-                    {
-                        id: 1,
-                        title: 'sdfs',
-                        description: 'asdfsadf'
-                    }
-                ]
+                tickets: [],
+                error: ''
             },
             mounted() {
                 var _this = this;
@@ -40,8 +33,53 @@ $(document).ready(function () {
                 });
             }
         });
-    }
 
+    }
+    var $signInEl = $('#sign-in');
+    if ($signInEl.length > 0) {
+        var signIn = new Vue({
+            el: '#sign-in',
+            data: {
+                username: '',
+                password: '',
+                rememberMe: ''
+            },
+            methods: {
+                submit: function (e) {
+                    e.preventDefault();
+                    var _this = this;
+
+                    $.ajax({
+                        url: 'http://192.168.1.128:7000/registration',
+                        data: {
+                            username: _this.username,
+                            password: _this.password,
+                            "remember-me": _this.rememberMe
+                        },
+                        method: 'POST',
+                        type: 'json',
+                        success: function (response) {
+                            if (response) {
+                                console.log(response, 'success');
+                            }
+                        },
+                        error: function (response) {
+                            if (response) {
+                               /* document.getElementById("message").innerHTML=
+                                    '<div class="card">\n' +
+                                    '    <div class="card-header deep-orange lighten-1 white-text">\n' +
+                                    '        Неправильный пароль или имя пользоваеля.\n' +
+                                    '    </div>\n' +
+                                    '</div>';*/
+                                console.log(response, 'error');
+                            }
+                        }
+                    });
+                }
+            }
+        });
+
+    }
     var $signUpEl = $('#sign-up');
     if ($signUpEl.length > 0) {
         var signUpApp = new Vue({
@@ -60,8 +98,8 @@ $(document).ready(function () {
                     console.log(this.password);
                     var _this = this;
                     $.ajax({
-                        url: 'http://192.168.1.128:7000/login',
-
+                        //url: 'http://192.168.1.128:7000/login',
+                        url: '/sign-up.json',
                         data: {
                             username: _this.username,
                             password: _this.password,

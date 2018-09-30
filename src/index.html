@@ -30,39 +30,74 @@
     <script src="js/main.js"></script>
     <!-- endbuild -->
     <!-- / Scripts -->
+    <style>
+
+        .intro-2 {
+            background: url("../img (42).jpg")no-repeat center center;
+            background-size: cover;
+        }
+        .view {
+            margin-top: -56px;
+        }
+        .navbar {
+            z-index: 1;
+            background-color: transparent;
+        }
+        .top-nav-collapse {
+            background-color: #4285F4;
+        }
+        @media only screen and (max-width: 768px) {
+            .navbar {
+                background-color: #4285F4;
+            }
+        }
+        html,
+        body,
+        header,
+        .view {
+            height: 100%;
+        }
+    </style>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a href="/" class="navbar-brand">OpenLance</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+
+<nav class="navbar navbar-expand-lg navbar-dark indigo">
+    <div class="container">
+        <a class="navbar-brand" href="#">Open<span class="badge cyan">Lance</span></a>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+
             <li class="nav-item">
-                <a href="create-ticket.html" class="nav-link">Создать объявление</a>
+                <a href="create-ticket.html" v-if="isAuth" class="nav-link">Создать объявление</a>
             </li>
             <li class="nav-item">
                 <a href="tickets.html" class="nav-link">Объявления</a>
             </li>
+            <li class="nav-item">
+                <a href="user.html" class="nav-link" v-if="isAuth">Личный кабинет</a>
+            </li>
         </ul>
+        <span class="navbar-text white-text">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+      <a href="sign-in.html"  class="btn btn-outline-white btn-sm "  v-if="isAuth">Войти</a>
+                </li>
+                <li class="nav-item ">
+            <a href="sign-up.html" class="nav-link" v-if="isAuth">Зарегистрироваться</a>
+                </li>
+            </ul>
+    </span>
     </div>
-    <ul class="navbar-nav nav-pills" id="lk-informer">
-        <li class="nav-item" v-if="isAuth">
-            <a href="sign-in.html" class="active">Войти</a>
-        </li>
-        <li class="nav-item" v-if="isAuth">
-            <a href="sign-up.html" class="nav-link ">Зарегистрироваться</a>
-        </li>
-        <li class="nav-item" v-else="isAuth">
-            <a href="user.html" class="nav-link">Личный кабинет</a>
-        </li>
-    </ul>
+    </div>
 </nav>
 
 
-<main>
+
+
+
+<main >
     <div class="container">
         <div class="row">
             <div class="col-md-12" id="app">
@@ -73,15 +108,85 @@
         </div>
     </div>
 </main>
-<footer>
-    <div class="container">
+<!-- Footer -->
+
+<footer class="page-footer font-small blue pt-4">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
         <div class="row">
-            <div class="col-md-12">
+
+            <!-- Grid column -->
+            <div class="col-md-6 mt-md-0 mt-3">
+
+                <!-- Content -->
+                <h5 class="text-uppercase">OpenLance</h5>
+                <p>Сервис для поиска соискателей в сфере ИТ на некомереской основе</p>
 
             </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none pb-3">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+
+                <!-- Links -->
+                <h5 class="text-uppercase">Сервисы</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#!"></a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 3</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 4</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+
+                <!-- Links -->
+                <h5 class="text-uppercase">Справочная</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#!">О нас</a>
+                    </li>
+                    <li>
+                        <a href="#!">Контакты</a>
+                    </li>
+                    <li>
+                        <a href="#!">Условия</a>
+                    </li>
+                    <li>
+                        <a href="#!">OL API</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
         </div>
+        <!-- Grid row -->
+
     </div>
+    <!-- Footer Links -->
+
 </footer>
+
+<!-- Footer -->
 </body>
 </html>
 
